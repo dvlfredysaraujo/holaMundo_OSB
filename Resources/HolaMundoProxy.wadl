@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<application xmlns:soa="http://www.oracle.com/soa/rest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://wadl.dev.java.net/2009/02">
+   <doc title="HolaMundoProxy">HolaMundo</doc>
+   <grammars>
+      <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://xmlns.oracle.com/HolaMundoApp/HolaMundo/HolaMundoPipeline" elementFormDefault="qualified" xmlns:tns="http://xmlns.oracle.com/HolaMundoApp/HolaMundo/HolaMundoPipeline" xmlns:inp1="http://xmlns.oracle.com/HolaMundoApp/HolaMundo/HolaMundoPipeline" xmlns:inp2="http://xmlns.oracle.com/HolaMundoApp/HolaMundo/HolaMundoPipeline" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+            <element name="string" type="string"/>
+        </schema>
+   </grammars>
+   <resources>
+      <resource path="/holaMundoTest">
+         <method name="GET" soa:wsdlOperation="execute">
+            <request soa:paramElement="pns:string" xmlns:pns="http://xmlns.oracle.com/HolaMundoApp/HolaMundo/HolaMundoPipeline">
+               <param name="string" style="query" soa:expression="$msg.request" type="xsd:string"/>
+            </request>
+            <response status="200">
+               <representation mediaType="application/xml" element="cns:string" xmlns:cns="http://xmlns.oracle.com/HolaMundoApp/HolaMundo/HolaMundoPipeline"/>
+               <representation mediaType="application/json" element="cns:string" xmlns:cns="http://xmlns.oracle.com/HolaMundoApp/HolaMundo/HolaMundoPipeline"/>
+            </response>
+         </method>
+      </resource>
+   </resources>
+</application>
